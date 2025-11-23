@@ -1,0 +1,20 @@
+{
+  "name": "mehradbejang",
+  "version": "1.0.0",
+  "description": "اولین توکن ایرانی واقعی روی zkSync Era | ZK Rollup | 2000+ TPS | گس تقریباً صفر | مهراد بجنگ تا آخر خط! 💙",
+  "scripts": {
+    "deploy:testnet": "hardhat deploy --network zkSyncTestnet",
+    "deploy:mainnet": "hardhat deploy --network zkSyncMainnet"
+  },
+  "devDependencies": {
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.3",
+    "@matterlabs/hardhat-zksync-solc": "^0.4.2",
+    "@matterlabs/zksync-web3": "^0.14.0",
+    "hardhat": "^2.22.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.0.0"
+  }
+}

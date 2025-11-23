@@ -1,0 +1,15 @@
+mehradbejang/
+├── contracts/
+│   └── MehradBejang.sol
+├── deploy/
+│   └── 001_deploy_mhrd.ts
+├── test/
+│   └── MehradBejang.test.ts
+├── .env.example
+├── .gitignore
+├── LICENSE
+├── README.md
+├── hardhat.config.ts
+├── package.json
+├── tsconfig.json
+└── logo.png (اختیاری - لوگو رو خودت بنداز)

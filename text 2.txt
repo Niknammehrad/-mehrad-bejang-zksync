@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+/// @title مهراد بجنگ - اولین توکن ایرانی واقعی روی zkSync Era
+/// @author Mehrad Bejang Army 💙
+/// @notice ZK Rollup | 2000+ TPS | گس تقریباً صفر
+contract MehradBejang is ERC20, ERC20Burnable, Ownable {
+    constructor(address initialOwner) ERC20("Mehrad Bejang", "MHRD") Ownable(initialOwner) {
+        uint256 totalSupply = 1_000_000_000 * 10 ** decimals();
+        _mint(initialOwner, totalSupply);
+    }
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+
+    function bejang() public pure returns (string memory) {
+        return unicode"مهراد بجنگ تا آخر خط! 💙🚀";
+    }
+}

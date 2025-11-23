@@ -1,0 +1,18 @@
+import { Provider } from "zksync-web3";
+import { expect } from "chai";
+import { Wallet, Contract } from "zksync-web3";
+import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
+
+describe("MehradBejang", function () {
+  it("باید اسم و سمبل درست باشه", async function () {
+    const wallet = Wallet.createRandom();
+    const provider = Provider.getDefaultProvider();
+    const deployer = new Deployer(hre, wallet);
+
+    const contract = await deployer.deploy("MehradBejang", [wallet.address]);
+    
+    expect(await contract.name()).to.eq("Mehrad Bejang");
+    expect(await contract.symbol()).to.eq("MHRD");
+    expect(await contract.bejang()).to.eq("مهراد بجنگ تا آخر خط! 💙🚀");
+  });
+});

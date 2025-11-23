@@ -1,0 +1,22 @@
+import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
+import { Wallet } from "zksync-web3";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+export default async function (hre: any) {
+  const privateKey = process.env.PRIVATE_KEY;
+  if (!privateKey) throw new Error("لطفاً PRIVATE_KEY رو تو فایل .env بذار");
+
+  const wallet = new Wallet(privateKey);
+  const deployer = new Deployer(hre, wallet);
+
+  console.log("دیپلوی با والت:", wallet.address);
+  
+  const contract = await deployer.deploy("MehradBejang", [wallet.address]);
+
+  console.log("=====================================");
+  console.log("مهراد بجنگ با موفقیت دیپلوی شد! 💙🔥");
+  console.log("آدرس قرارداد:", contract.address);
+  console.log("اکسپلورر: https://explorer.zksync.io/address/" + contract.address);
+  console.log("=====================================");
+}
